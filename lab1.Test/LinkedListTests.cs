@@ -74,5 +74,26 @@ namespace lab1.Test
 
             Assert.Throws<Exception>(() => list.back());
         }
+
+        [Test]
+        public void TestReverse()
+        {
+            list.push_back(1);
+            list.push_back(2);
+            list.push_back(3);
+
+            list.reverse();
+
+            Assert.AreEqual(1, list.back());
+            list.pop_back();
+
+            Assert.AreEqual(2, list.back());
+            list.pop_back();
+
+            Assert.AreEqual(3, list.back());
+            list.pop_back();
+
+            Assert.Throws<Exception>(() => list.back());
+        }
     }
 }
