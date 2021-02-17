@@ -107,4 +107,19 @@ public class LinkedList<T>
             index += 1;
         }
     }
+
+    public void reverse() {
+        LinkedList<T> res = new LinkedList<T>();
+
+        Node<T> current = tail;
+
+        while (current != null)
+        {
+            res.push_back(current.data);
+            current = current.prev;
+        }
+
+        head = res.head;
+        tail = res.tail;
+    }
 }
