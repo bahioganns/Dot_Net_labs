@@ -1,12 +1,14 @@
 using System;
 
-internal class Node<T> {
+internal class Node<T>
+{
     internal Node<T> prev;
     internal Node<T> next;
 
     internal T data;
 
-    public Node(T d) {
+    public Node(T d)
+    {
         next = null;
         prev = null;
 
@@ -14,15 +16,18 @@ internal class Node<T> {
     }
 }
 
-public class LinkedList<T> {
+public class LinkedList<T>
+{
     internal Node<T> head = null;
     internal Node<T> tail = null;
 
-    public override string ToString() {
+    public override string ToString()
+    {
         Node<T> current = head;
 
         string res = "";
-        while (current != null) {
+        while (current != null)
+        {
             res += $"{current.data} -> ";
 
             current = current.next;
@@ -32,11 +37,15 @@ public class LinkedList<T> {
         return res;
     }
 
-    public void push_back(T val) {
-        if (head == null) {
+    public void push_back(T val)
+    {
+        if (head == null)
+        {
             head = new Node<T>(val);
             tail = head;
-        } else {
+        }
+        else
+        {
             Node<T> new_node = new Node<T>(val);
             new_node.prev = tail;
 
@@ -45,37 +54,50 @@ public class LinkedList<T> {
         }
     }
 
-    public void pop_back() {
-        if (tail != null && tail.prev != null) {
+    public void pop_back()
+    {
+        if (tail != null && tail.prev != null)
+        {
             tail = tail.prev;
             tail.next = null;
-        } else {
+        }
+        else
+        {
             head = null;
             tail = null;
         }
     }
 
-    public T back() {
-        if (tail != null) {
+    public T back()
+    {
+        if (tail != null)
+        {
             return tail.data;
         }
 
         throw new Exception("Nothing at list");
     }
 
-    public void remove_by_index(int index_to_remove) {
+    public void remove_by_index(int index_to_remove)
+    {
         Node<T> current = head;
 
         int index = 0;
-        while (current != null) {
-            if (index == index_to_remove) {
-                if (current.prev != null) {
+        while (current != null)
+        {
+            if (index == index_to_remove)
+            {
+                if (current.prev != null)
+                {
                     current.prev.next = current.next;
                     current.next.prev = current.prev;
-                } else {
+                }
+                else
+                {
                     head = head.next;
 
-                    if (head == null) {
+                    if (head == null)
+                    {
                         tail = null;
                     }
                 }
