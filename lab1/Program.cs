@@ -6,7 +6,7 @@ namespace lab1
     {
         static void Main(string[] args)
         {
-            LinkedList list = new LinkedList();
+            LinkedList<int> list = new LinkedList<int>();
 
             list.push_back(123);
             Console.WriteLine(list);

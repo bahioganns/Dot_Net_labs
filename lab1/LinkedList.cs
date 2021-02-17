@@ -1,10 +1,12 @@
-internal class Node {
-    internal Node prev;
-    internal Node next;
+using System;
 
-    internal int data;
+internal class Node<T> {
+    internal Node<T> prev;
+    internal Node<T> next;
 
-    public Node(int d) {
+    internal T data;
+
+    public Node(T d) {
         next = null;
         prev = null;
 
@@ -12,12 +14,12 @@ internal class Node {
     }
 }
 
-class LinkedList {
-    internal Node head = null;
-    internal Node tail = null;
+public class LinkedList<T> {
+    internal Node<T> head = null;
+    internal Node<T> tail = null;
 
     public override string ToString() {
-        Node current = head;
+        Node<T> current = head;
 
         string res = "";
         while (current != null) {
@@ -30,12 +32,12 @@ class LinkedList {
         return res;
     }
 
-    public void push_back(int val) {
+    public void push_back(T val) {
         if (head == null) {
-            head = new Node(val);
+            head = new Node<T>(val);
             tail = head;
         } else {
-            Node new_node = new Node(val);
+            Node<T> new_node = new Node<T>(val);
             new_node.prev = tail;
 
             tail.next = new_node;
@@ -51,5 +53,19 @@ class LinkedList {
             head = null;
             tail = null;
         }
+    }
+
+    public T back() {
+        if (tail != null) {
+            return tail.data;
+        }
+
+        throw new Exception("Nothing at list");
+    }
+
+    public void remove_by_value(T val) {
+    }
+
+    public void remove_by_index(T val) {
     }
 }
