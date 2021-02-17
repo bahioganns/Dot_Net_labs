@@ -63,9 +63,26 @@ public class LinkedList<T> {
         throw new Exception("Nothing at list");
     }
 
-    public void remove_by_value(T val) {
-    }
+    public void remove_by_index(int index_to_remove) {
+        Node<T> current = head;
 
-    public void remove_by_index(T val) {
+        int index = 0;
+        while (current != null) {
+            if (index == index_to_remove) {
+                if (current.prev != null) {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                } else {
+                    head = head.next;
+
+                    if (head == null) {
+                        tail = null;
+                    }
+                }
+            }
+
+            current = current.next;
+            index += 1;
+        }
     }
 }
