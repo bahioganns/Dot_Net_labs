@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 internal class Node<T>
 {
@@ -16,7 +17,7 @@ internal class Node<T>
     }
 }
 
-public class LinkedList<T>
+public class LinkedList<T>: IEnumerable
 {
     internal Node<T> head = null;
     internal Node<T> tail = null;
@@ -121,5 +122,16 @@ public class LinkedList<T>
 
         head = res.head;
         tail = res.tail;
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        Node<T> current = head;
+
+        while (current != null)
+        {
+            yield return current.data;
+            current = current.next;
+        }
     }
 }
