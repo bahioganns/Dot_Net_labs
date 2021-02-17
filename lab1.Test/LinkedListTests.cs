@@ -95,5 +95,21 @@ namespace lab1.Test
 
             Assert.Throws<Exception>(() => list.back());
         }
+
+        [Test]
+        public void TestIEnumerable()
+        {
+            list.push_back(1);
+            list.push_back(2);
+            list.push_back(3);
+
+            int i = 1;
+            foreach (int val in list)
+            {
+                Assert.AreEqual(i, val);
+                i += 1;
+            }
+            Assert.AreEqual(i, 4);
+        }
     }
 }
