@@ -15,8 +15,8 @@ jobs:
       with:
         dotnet-version: 2.1
     - name: Restore dependencies
-      run: dotnet restore lab1.Test
+      run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore lab1
+      run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal lab1.Test
+      run: dotnet test --no-build --verbosity normal
