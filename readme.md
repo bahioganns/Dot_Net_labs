@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/bahioganns/Dot_Net_labs/workflows/.NET/badge.svg)](https://github.com/bahioganns/Dot_Net_labs/actions)
+[![Build Status](https://github.com/bahioganns/Dot_Net_labs/workflows/.NET/badge.svg)](https://github.com/bahioganns/Dot_Net_labs/actions?query=branch%3Amaster)
 
 # Лабораторная работа 1
 
