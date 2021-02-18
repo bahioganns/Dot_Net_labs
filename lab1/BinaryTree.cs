@@ -34,10 +34,6 @@ namespace BinaryTree
             if (root == null)
             {
                 root = new_node;
-                if (this.root == null)
-                {
-                    this.root = new_node;
-                }
                 return;
             }
 
