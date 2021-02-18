@@ -5,12 +5,12 @@ namespace lab1.Test
 {
     public class LinkedListTests
     {
-        private LinkedList<int> list;
+        private LinkedList.LinkedList<int> list;
 
         [SetUp]
         public void Setup()
         {
-            list = new LinkedList<int>();
+            list = new LinkedList.LinkedList<int>();
         }
 
         [Test]

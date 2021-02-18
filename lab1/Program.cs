@@ -7,7 +7,7 @@ namespace lab1
         static void Main(string[] args)
         {
             // Linked List Example
-            LinkedList<int> list = new LinkedList<int>();
+            LinkedList.LinkedList<int> list = new LinkedList.LinkedList<int>();
 
             list.push_back(123);
             list.push_back(456);
