@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/bahioganns/Dot_Net_labs/workflows/.NET/badge.svg?branch=cuamckuu_lab1)](https://github.com/bahioganns/Dot_Net_labs/actions?query=branch%3Acuamckuu_lab1)
+[![Lab1 Build And Tests](https://github.com/bahioganns/Dot_Net_labs/actions/workflows/dotnet.yml/badge.svg?branch=cuamckuu_lab1)](https://github.com/bahioganns/Dot_Net_labs/actions/workflows/dotnet.yml)
 
 # Лабораторная работа 1
 
