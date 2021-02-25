@@ -1,4 +1,4 @@
-name: Lab2 Build And Tests
+name: Labs Build And Tests
 
 on:
   push:
