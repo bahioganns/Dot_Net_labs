@@ -1,4 +1,4 @@
-name: Lab1 Build And Tests
+name: Labs Build And Tests
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
