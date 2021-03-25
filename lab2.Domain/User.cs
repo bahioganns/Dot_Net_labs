@@ -1,14 +1,18 @@
+using System.Collections.Generic;
+
 namespace lab2.Domain
 {
     public class User
     {
         public override string ToString()
         {
-            return $"User<id={id}, email='{email}'>";
+            return $"User<id={Id}, email='{Email}'>";
         }
 
-        public int id { get; set; }
-        public string email { get; set; }
-        public string password_hash { get; set; }
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
+
+        public List<Note> Notes { get; } = new List<Note>();
     }
 }

@@ -1,18 +1,19 @@
-using System;
+using lab2.Domain.Contracts;
 
 namespace lab2.Domain
 {
-    public class Note
+    public class Note: IUserContainer
     {
         public override string ToString()
         {
-            return $"Note<id={id}, user_id='{user_id}', title='{title}'>";
+            return $"Note<id={Id}, user_id='{User.Id}', title='{Title}'>";
         }
 
-        public int id { get; set; }
-        public int user_id { get; set; }
-        public string title { get; set; }
-        public string content { get; set; }
-        public DateTime created { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+
+        public User User { get; set; }
+        int? IUserContainer.UserId => this.User.Id;
     }
 }
