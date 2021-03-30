@@ -27,17 +27,20 @@ namespace DataLayer.Context
         {
             modelBuilder.Entity<Note>(entity =>
             {
-                entity.HasOne(n => n.User)
-                      .WithMany(u => u.Notes)
-                      .HasForeignKey(n => n.UserId);
+                entity.HasOne(note => note.User)
+                      .WithMany(user => user.Notes)
+                      .HasForeignKey(note => note.UserId);
+
+                entity.Property(note => note.Title).IsRequired();
+                entity.Property(note => note.Content).IsRequired();
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Email).IsRequired();
-                entity.HasIndex(e => e.Email).IsUnique();
+                entity.Property(user => user.Email).IsRequired();
+                entity.HasIndex(user => user.Email).IsUnique();
 
-                entity.Property(e => e.PasswordHash).IsRequired();
+                entity.Property(user => user.PasswordHash).IsRequired();
             });
 
             this.OnModelCreatingPartial(modelBuilder);
