@@ -1,4 +1,4 @@
-namespace lab2.Domain.Contracts
+namespace Domain.Contracts
 {
     public interface IUserContainer
     {

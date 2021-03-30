@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace lab2.Domain
+namespace Domain
 {
     public class User
     {

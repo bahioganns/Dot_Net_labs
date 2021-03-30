@@ -1,6 +1,6 @@
 using System;
 
-namespace lab2.Domain
+namespace Domain
 {
     class Program
     {

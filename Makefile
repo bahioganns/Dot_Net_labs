@@ -1,4 +1,4 @@
-PROJECT_NAME := lab2.DataLayer
+PROJECT_NAME := DataAccess
 SLN_NAME := labs.sln
 
 run:

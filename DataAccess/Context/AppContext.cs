@@ -1,8 +1,8 @@
-using lab2.DataLayer.Entities;
+using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace lab2.DataLayer.Context
+namespace DataLayer.Context
 {
     public partial class NotesAppContext : DbContext
     {

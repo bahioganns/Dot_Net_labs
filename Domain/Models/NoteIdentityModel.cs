@@ -1,6 +1,6 @@
-using lab2.Domain.Contracts;
+using Domain.Contracts;
 
-namespace lab2.Domain.Models
+namespace Domain.Models
 {
     public class NoteIdentityModel : INoteIdentity
     {

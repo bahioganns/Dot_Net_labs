@@ -1,6 +1,6 @@
-using lab2.Domain.Contracts;
+using Domain.Contracts;
 
-namespace lab2.Domain
+namespace Domain
 {
     public class Note: IUserContainer
     {

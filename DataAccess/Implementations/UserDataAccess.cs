@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using lab2.DataLayer.Context;
-using lab2.DataLayer.Contracts;
-using lab2.DataLayer.Entities;
-using lab2.Domain.Contracts;
-using lab2.Domain.Models;
-using lab2.Domain;
+using DataLayer.Context;
+using DataLayer.Contracts;
+using DataLayer.Entities;
+using Domain.Contracts;
+using Domain.Models;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace lab2.DataLayer.Implementations
+namespace DataLayer.Implementations
 {
     public class UserDataAccess : IUserDataAccess
     {
@@ -25,25 +25,25 @@ namespace lab2.DataLayer.Implementations
             context.Database.EnsureCreated();
         }
 
-        public lab2.Domain.User Insert(UserUpdateModel user)
+        public Domain.User Insert(UserUpdateModel user)
         {
-            var result = this.Context.Add(this.Mapper.Map<lab2.DataLayer.Entities.User>(user));
+            var result = this.Context.Add(this.Mapper.Map<DataLayer.Entities.User>(user));
 
             this.Context.SaveChanges();
 
-            lab2.Domain.User res = new lab2.Domain.User { Id=result.Entity.Id };
+            Domain.User res = new Domain.User { Id=result.Entity.Id };
             this.Mapper.Map(result.Entity, res);
             return res;
         }
 
-        public lab2.Domain.User Get(UserIdentityModel id)
+        public Domain.User Get(UserIdentityModel id)
         {
             var result = this.Context.User.Where(u => u.Id == id.Id).First();
 
-            return this.Mapper.Map<lab2.Domain.User>(result);
+            return this.Mapper.Map<Domain.User>(result);
         }
 
-        public lab2.Domain.User Update(UserIdentityModel id, UserUpdateModel user)
+        public Domain.User Update(UserIdentityModel id, UserUpdateModel user)
         {
             var existing = this.Context.User.Where(u => u.Id == id.Id).First();
 
@@ -53,7 +53,7 @@ namespace lab2.DataLayer.Implementations
 
             this.Context.SaveChanges();
 
-            return this.Mapper.Map<lab2.Domain.User>(result);
+            return this.Mapper.Map<Domain.User>(result);
         }
     }
 }

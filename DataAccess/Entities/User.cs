@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace lab2.DataLayer.Entities
+namespace DataLayer.Entities
 {
     public partial class User
     {
