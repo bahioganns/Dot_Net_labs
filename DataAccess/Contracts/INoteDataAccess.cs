@@ -8,7 +8,7 @@ namespace DataLayer.Contracts
     {
         Domain.Note Insert(NoteUpdateModel note);
         Domain.Note Get(NoteIdentityModel id);
-        IEnumerable<Domain.Note> GetUserNotes(UserIdentityModel userId);
+        List<Domain.Note> GetUserNotes(UserIdentityModel userId);
         Domain.Note Update(NoteIdentityModel id, NoteUpdateModel note);
     }
 }
