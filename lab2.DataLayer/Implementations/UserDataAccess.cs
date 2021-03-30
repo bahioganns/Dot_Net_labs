@@ -6,6 +6,8 @@ using lab2.DataLayer.Context;
 using lab2.DataLayer.Contracts;
 using lab2.DataLayer.Entities;
 using lab2.Domain.Contracts;
+using lab2.Domain.Models;
+using lab2.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace lab2.DataLayer.Implementations
@@ -19,27 +21,31 @@ namespace lab2.DataLayer.Implementations
         {
             this.Context = context;
             this.Mapper = mapper;
+
+            context.Database.EnsureCreated();
         }
 
-        public lab2.Domain.User Insert(lab2.Domain.User user)
+        public lab2.Domain.User Insert(UserUpdateModel user)
         {
-            var result = this.Context.Add(this.Mapper.Map<User>(user));
+            var result = this.Context.Add(this.Mapper.Map<lab2.DataLayer.Entities.User>(user));
 
             this.Context.SaveChanges();
 
-            return this.Mapper.Map<lab2.Domain.User>(result.Entity);
+            lab2.Domain.User res = new lab2.Domain.User { Id=result.Entity.Id };
+            this.Mapper.Map(result.Entity, res);
+            return res;
         }
 
-        public lab2.Domain.User GetById(int userId)
+        public lab2.Domain.User Get(UserIdentityModel id)
         {
-            var result = this.Context.User.Where(u => u.Id==userId).First();
+            var result = this.Context.User.Where(u => u.Id == id.Id).First();
 
             return this.Mapper.Map<lab2.Domain.User>(result);
         }
 
-        public lab2.Domain.User Update(lab2.Domain.User user)
+        public lab2.Domain.User Update(UserIdentityModel id, UserUpdateModel user)
         {
-            var existing = this.GetById(user.Id);
+            var existing = this.Context.User.Where(u => u.Id == id.Id).First();
 
             var result = this.Mapper.Map(user, existing);
 
