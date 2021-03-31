@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using DataLayer.Context;
-using DataLayer.Contracts;
-using DataLayer.Entities;
+using DataAccess.Context;
+using DataAccess.Contracts;
+using DataAccess.Entities;
 using Domain.Contracts;
 using Domain.Models;
 using Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataLayer.Implementations
+namespace DataAccess.Implementations
 {
     public class NoteDataAccess : INoteDataAccess
     {
@@ -27,7 +27,7 @@ namespace DataLayer.Implementations
 
         public Domain.Note Insert(NoteUpdateModel note)
         {
-            var result = this.Context.Add(this.Mapper.Map<DataLayer.Entities.Note>(note));
+            var result = this.Context.Add(this.Mapper.Map<DataAccess.Entities.Note>(note));
 
             this.Context.SaveChanges();
 

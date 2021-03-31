@@ -1,8 +1,8 @@
-using DataLayer.Entities;
+using DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DataLayer.Context
+namespace DataAccess.Context
 {
     public partial class NotesAppContext : DbContext
     {

@@ -1,25 +1,25 @@
 ﻿using System;
 using AutoMapper;
-using DataLayer.Entities;
-using DataLayer.Context;
-using DataLayer.Implementations;
+using DataAccess.Entities;
+using DataAccess.Context;
+using DataAccess.Implementations;
 using Domain.Models;
 
-namespace DataLayer
+namespace DataAccess
 {
     class Program
     {
         static void Main(string[] args)
         {
             var mapperConfig = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Domain.Models.UserUpdateModel, DataLayer.Entities.User>();
+                cfg.CreateMap<Domain.Models.UserUpdateModel, DataAccess.Entities.User>();
                 cfg.CreateMap<Domain.Models.UserUpdateModel, Domain.User>();
-                cfg.CreateMap<DataLayer.Entities.User, Domain.User>();
-                cfg.CreateMap<Domain.User, DataLayer.Entities.User>();
-                cfg.CreateMap<Domain.Models.NoteUpdateModel, DataLayer.Entities.Note>();
+                cfg.CreateMap<DataAccess.Entities.User, Domain.User>();
+                cfg.CreateMap<Domain.User, DataAccess.Entities.User>();
+                cfg.CreateMap<Domain.Models.NoteUpdateModel, DataAccess.Entities.Note>();
                 cfg.CreateMap<Domain.Models.NoteUpdateModel, Domain.Note>();
-                cfg.CreateMap<DataLayer.Entities.Note, Domain.Note>();
-                cfg.CreateMap<Domain.Note, DataLayer.Entities.Note>();
+                cfg.CreateMap<DataAccess.Entities.Note, Domain.Note>();
+                cfg.CreateMap<Domain.Note, DataAccess.Entities.Note>();
             });
             Mapper mapper = new Mapper(mapperConfig);
 

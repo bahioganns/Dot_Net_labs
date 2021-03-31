@@ -1,7 +1,7 @@
 using Domain;
 using Domain.Models;
 
-namespace DataLayer.Contracts
+namespace DataAccess.Contracts
 {
     public interface IUserDataAccess
     {
