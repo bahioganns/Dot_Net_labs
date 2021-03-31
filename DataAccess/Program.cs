@@ -63,6 +63,12 @@ namespace DataLayer
 
             Console.WriteLine("\nGet User Notes:");
             noteDataAccess.GetUserNotes(new UserIdentityModel(1)).ForEach(Console.WriteLine);
+
+            Console.WriteLine("\nGet User Notes From User Class:");
+            userDataAccess.Get(new UserIdentityModel(1)).Notes.ForEach(Console.WriteLine);
+
+            noteDataAccess.Delete(new NoteIdentityModel(1));
+            userDataAccess.Delete(new UserIdentityModel(1));
         }
     }
 }

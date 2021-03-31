@@ -10,5 +10,6 @@ namespace DataLayer.Contracts
         Domain.Note Get(NoteIdentityModel id);
         List<Domain.Note> GetUserNotes(UserIdentityModel userId);
         Domain.Note Update(NoteIdentityModel id, NoteUpdateModel note);
+        void Delete(NoteIdentityModel id);
     }
 }

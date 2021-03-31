@@ -8,5 +8,6 @@ namespace DataLayer.Contracts
         Domain.User Insert(UserUpdateModel user);
         Domain.User Get(UserIdentityModel id);
         Domain.User Update(UserIdentityModel id, UserUpdateModel user);
+        void Delete(UserIdentityModel id);
     }
 }

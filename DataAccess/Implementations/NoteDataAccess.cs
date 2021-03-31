@@ -64,5 +64,15 @@ namespace DataLayer.Implementations
 
             return this.Mapper.Map<Domain.Note>(result);
         }
+
+        public void Delete(NoteIdentityModel id)
+        {
+            var existing = this.Context.Note.Where(n => n.Id == id.Id).First();
+
+            this.Context.Attach(existing);
+            this.Context.Remove(existing);
+
+            this.Context.SaveChanges();
+        }
     }
 }

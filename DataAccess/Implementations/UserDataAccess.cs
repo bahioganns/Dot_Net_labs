@@ -55,5 +55,15 @@ namespace DataLayer.Implementations
 
             return this.Mapper.Map<Domain.User>(result);
         }
+
+        public void Delete(UserIdentityModel id)
+        {
+            var existing = this.Context.User.Where(u => u.Id == id.Id).First();
+
+            this.Context.Attach(existing);
+            this.Context.Remove(existing);
+
+            this.Context.SaveChanges();
+        }
     }
 }
