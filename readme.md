@@ -7,7 +7,7 @@
 - [X] Domain
 - [X] DataAccess
 - [X] BLL
-- [ ] BLL.Test
+- [X] BLL.Test
 - [ ] WebAPI
 - [ ] Razor
 
