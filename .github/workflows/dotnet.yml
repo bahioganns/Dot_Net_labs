@@ -1,6 +1,12 @@
 name: Labs Build And Tests
 
 on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Hello"
+        required: true
+        default: "World"
   push:
     branches: [ cuamckuu_lab2 ]
 
