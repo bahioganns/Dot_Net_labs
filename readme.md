@@ -1,28 +1,40 @@
-[![Lab2 Build And Tests](https://github.com/bahioganns/Dot_Net_labs/actions/workflows/dotnet.yml/badge.svg?branch=cuamckuu_lab2)](https://github.com/bahioganns/Dot_Net_labs/actions/workflows/dotnet.yml)
+[![Labs Build And Tests](https://github.com/bahioganns/Dot_Net_labs/actions/workflows/dotnet.yml/badge.svg?branch=cuamckuu_lab2)](https://github.com/bahioganns/Dot_Net_labs/actions/workflows/dotnet.yml)
 
-# Лабораторная работа 2
+# Лабораторные работы от 2 до 6
 
-## Задание
-- Выбрать тему для проекта – прототипа системы на трехзвенной архитектуре
-- Используем DotNet Core 3.x
-- Своя тема, подразумевающая наличие: БД, сервер с API (WebAPI), клиент на ASP.NET MVC (веб-приложение)
-- Начать реализацию проекта – создать новый Solution, продумать и сделать доменную модель
+Выбрана тема: Приложение для заметок
+
+- [X] Domain
+- [X] DataAccess
+- [X] BLL
+- [ ] BLL.Test
+- [ ] WebAPI
+- [ ] Razor
 
 # Заметки по C#
 
 ```bash
-# Создание решения с проектами
-mkdir someSolution
-cd someSolution
+# Создание проектов
+mkdir labs
+cd labs
 
-dotnet new sln
 dotnet new console -o lab1
 dotnet new nunit -o lab1.Test
 
+# Создание решения и добавление проектов
+dotnet new sln
 dotnet sln labs.sln add lab1/lab1.csproject
 dotnet sln labs.sln add lab1.Test/lab1.Test.csproject
 
+# Использование одного проекта в другом
+dotnet add ./DataAccess/ reference ./Domain/
+
+# Cборка, тесты, запуск, см. больше в Makefile
 dotnet build labs.sln
 dotnet test labs.sln
 dotnet run lab1
+
+# Установка библиотек
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Moq --version 4.16.1
 ```
