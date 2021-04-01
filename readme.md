@@ -8,6 +8,7 @@
 - [X] DataAccess
 - [X] BLL
 - [X] BLL.Test
+- [ ] DTO
 - [ ] WebAPI
 - [ ] Razor
 
@@ -18,13 +19,18 @@
 mkdir labs
 cd labs
 
-dotnet new console -o lab1
-dotnet new nunit -o lab1.Test
+dotnet new console -o Domain
+dotnet new console -o DataAccess
+dotnet new console -o BLL
+dotnet new nunit -o BLL.Test
+dotnet new classlib -o DTO
+dotnet new webapi --no-https --auth None -o WebAPI
+dotnet new # Список всех возможных типов проектов
 
 # Создание решения и добавление проектов
 dotnet new sln
-dotnet sln labs.sln add lab1/lab1.csproject
-dotnet sln labs.sln add lab1.Test/lab1.Test.csproject
+dotnet sln labs.sln add Domain/Domain.csproject
+dotnet sln labs.sln add BLL.Test/BLL.Test.csproject
 
 # Использование одного проекта в другом
 dotnet add ./DataAccess/ reference ./Domain/
@@ -32,9 +38,9 @@ dotnet add ./DataAccess/ reference ./Domain/
 # Cборка, тесты, запуск, см. больше в Makefile
 dotnet build labs.sln
 dotnet test labs.sln
-dotnet run lab1
+dotnet run DataAccess
 
 # Установка библиотек
-dotnet add package Microsoft.EntityFrameworkCore.Sqlite
-dotnet add package Moq --version 4.16.1
+dotnet add ./DataAccess/ package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add ./BLL.Test/ package Moq --version 4.16.1
 ```
