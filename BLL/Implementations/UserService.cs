@@ -36,7 +36,7 @@ namespace BLL.Implementations
             this.UserDataAccess.Delete(userId);
         }
 
-        public void validateUser(UserUpdateModel user)
+        public void ValidateUser(UserUpdateModel user)
         {
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             if(!regex.Match(user.Email).Success)

@@ -25,6 +25,6 @@ namespace BLL.Contracts
 
     public interface IUserValidateService
     {
-        void validateUser(UserUpdateModel user);
+        void ValidateUser(UserUpdateModel user);
     }
 }
