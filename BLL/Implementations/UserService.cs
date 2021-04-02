@@ -7,7 +7,7 @@ using BLL.Contracts;
 
 namespace BLL.Implementations
 {
-    public class UserService : IUserCreateService, IUserGetService, IUserUpdateService, IUserDeleteService, IUserValidateService
+    public class UserService : IUserCreateService, IUserGetService, IUserUpdateService, IUserDeleteService
     {
         private IUserDataAccess UserDataAccess { get; }
 

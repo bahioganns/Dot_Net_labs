@@ -5,6 +5,7 @@ namespace BLL.Contracts
 {
     public interface IUserCreateService
     {
+        void ValidateUser(UserUpdateModel user);
         User CreateUser(UserUpdateModel user);
     }
 
@@ -21,10 +22,5 @@ namespace BLL.Contracts
     public interface IUserDeleteService
     {
         void DeleteUser(UserIdentityModel userId);
-    }
-
-    public interface IUserValidateService
-    {
-        void ValidateUser(UserUpdateModel user);
     }
 }
