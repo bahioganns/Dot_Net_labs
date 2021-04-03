@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Домашняя страница";
+}
+
+<h2>Список пользователей</h2>
+
+@{
+   var allUsers = (List<UserDTO>)ViewData["AllUsers"];
+}
+
+<div>
+@foreach (var user in @allUsers)
+{
+    <div class="card m-2 p-3">
+        <h5 class="card-title">Пользователь #@user.Id</h5>
+        <span><b>Email:</b> @user.Email</span>
+        <span><b>Описание:</b> @user.Description</span>
+        <span class="p-1">
+            <a class="float-left btn btn-sm btn-secondary m-1" href="/Note/FromUser/@user.Id">Заметки пользователя</a>
+            <a class="float-right btn btn-sm btn-danger m-1" href="/User/Delete/@user.Id">Удалить профиль</a>
+            <a class="float-right btn btn-sm btn-primary m-1" href="/User/Update/@user.Id">Изменить профиль</a>
+        </span>
+    </div>
+}
+    <div class="card m-2 p-2">
+        <a class="btn btn-sm btn-link" href="/User/Create">Создать пользователя</a>
+    </div>
+</div>
