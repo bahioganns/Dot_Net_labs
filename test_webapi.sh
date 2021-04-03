@@ -12,3 +12,18 @@ curl "http://localhost:5000/api/user/1" -X PUT -H "Content-Type: application/jso
 
 # Delete User
 curl -X DELETE "http://localhost:5000/api/user/1"
+
+# Create User Note
+curl "http://localhost:5000/api/user/2/notes" -X POST -H "Content-Type: application/json" --data '{"Title":"title2","Content":"content2"}'
+
+# Get User Notes IDs
+curl "http://localhost:5000/api/user/2/notes"
+
+# Get Note
+curl "http://localhost:5000/api/note/3"
+
+# Update Note
+curl "http://localhost:5000/api/note/3" -X PUT -H "Content-Type: application/json" --data '{"Title":"test","Content":"123456","UserId":2}'
+
+# Delete Note
+curl -X DELETE "http://localhost:5000/api/note/1"
