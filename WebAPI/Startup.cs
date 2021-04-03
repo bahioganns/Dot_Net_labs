@@ -32,16 +32,25 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Mapper
             services.AddAutoMapper(typeof(Startup));
 
+            // DataAccess
+            services.AddDbContext<NotesAppContext>();
             services.Add(new ServiceDescriptor(typeof(IUserDataAccess), typeof(UserDataAccess), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(INoteDataAccess), typeof(NoteDataAccess), ServiceLifetime.Scoped));
 
+            // User Services BLL
             services.Add(new ServiceDescriptor(typeof(IUserCreateService), typeof(UserService), ServiceLifetime.Scoped));
-            services.Add(new ServiceDescriptor(typeof(IUserGetService), typeof(UserService), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(IUserGetService),    typeof(UserService), ServiceLifetime.Scoped));
             services.Add(new ServiceDescriptor(typeof(IUserUpdateService), typeof(UserService), ServiceLifetime.Scoped));
             services.Add(new ServiceDescriptor(typeof(IUserDeleteService), typeof(UserService), ServiceLifetime.Scoped));
 
-            services.AddDbContext<NotesAppContext>();
+            // Note Services BLL
+            services.Add(new ServiceDescriptor(typeof(INoteCreateService), typeof(NoteService), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(INoteGetService),    typeof(NoteService), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(INoteUpdateService), typeof(NoteService), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(INoteDeleteService), typeof(NoteService), ServiceLifetime.Scoped));
 
             services.AddControllers();
         }

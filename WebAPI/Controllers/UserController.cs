@@ -26,7 +26,10 @@ namespace WebAPI.Controllers
         private IUserUpdateService UserUpdateService { get; }
         private IUserDeleteService UserDeleteService { get; }
 
-        public UserController(ILogger<UserController> logger, IMapper mapper, IUserCreateService userCreateService, IUserGetService userGetService, IUserUpdateService userUpdateService, IUserDeleteService userDeleteService)
+        private INoteCreateService NoteCreateService { get; }
+        private INoteGetService NoteGetService { get; }
+
+        public UserController(ILogger<UserController> logger, IMapper mapper, IUserCreateService userCreateService, IUserGetService userGetService, IUserUpdateService userUpdateService, IUserDeleteService userDeleteService, INoteGetService noteGetService, INoteCreateService noteCreateService)
         {
             _logger = logger;
 
@@ -35,6 +38,9 @@ namespace WebAPI.Controllers
             this.UserGetService = userGetService;
             this.UserUpdateService = userUpdateService;
             this.UserDeleteService = userDeleteService;
+
+            this.NoteCreateService = noteCreateService;
+            this.NoteGetService = noteGetService;
         }
 
         [HttpPost]
@@ -48,10 +54,24 @@ namespace WebAPI.Controllers
             return Mapper.Map<UserDTO>(res);
         }
 
+        [HttpPost("{id}/notes")]
+        public NoteDTO CreateUserNote(int id, NoteDTO note)
+        {
+            note.UserId = id;
+
+            return Mapper.Map<NoteDTO>(NoteCreateService.CreateNote(Mapper.Map<NoteUpdateModel>(note)));
+        }
+
         [HttpGet("{id}")]
         public UserDTO GetUser(int id)
         {
             return Mapper.Map<UserDTO>(UserGetService.GetUser(new UserIdentityModel(id)));
+        }
+
+        [HttpGet("{id}/notes")]
+        public IEnumerable<int> GetUserNotes(int id)
+        {
+            return NoteGetService.GetUserNotes(new UserIdentityModel(id)).Select(x => x.Id).ToList();
         }
 
         [HttpPut("{id}")]
