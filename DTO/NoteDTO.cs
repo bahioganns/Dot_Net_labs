@@ -9,6 +9,6 @@ namespace DTO
         public string Content { get; set; }
         public DateTime Created { get; set; }
 
-        public UserDTO User { get; set; }
+        public int? UserId { get; set; }
     }
 }
