@@ -1,8 +1,10 @@
-PROJECT_NAME := DataAccess
 SLN_NAME := labs.sln
 
-run:
-	dotnet run --project ${PROJECT_NAME}
+mvc:
+	dotnet run --project MVC/
+
+api:
+	dotnet run --project WebApi/
 
 restore:
 	dotnet restore ${SLN_NAME}
