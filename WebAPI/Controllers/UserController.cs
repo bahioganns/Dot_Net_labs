@@ -62,6 +62,12 @@ namespace WebAPI.Controllers
             return Mapper.Map<NoteDTO>(NoteCreateService.CreateNote(Mapper.Map<NoteUpdateModel>(note)));
         }
 
+        [HttpGet]
+        public IEnumerable<UserDTO> GetAllUsers()
+        {
+            return UserGetService.GetAllUsers().Select(x => Mapper.Map<UserDTO>(x)).ToList();
+        }
+
         [HttpGet("{id}")]
         public UserDTO GetUser(int id)
         {
