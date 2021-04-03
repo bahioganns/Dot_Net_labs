@@ -19,7 +19,7 @@ namespace BLL.Test
         public void SetUp()
         {
             fakeUserDataAccess = new Mock<IUserDataAccess>();
-            expected = new User{ Id=1, Email="123@456.ru", PasswordHash="1234567" };
+            expected = new User{ Id=1, Email="123@456.ru", Description="1234567" };
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace BLL.Test
             // Assert
             Assert.AreEqual(user.Id, expected.Id);
             Assert.AreEqual(user.Email, expected.Email);
-            Assert.AreEqual(user.PasswordHash, expected.PasswordHash);
+            Assert.AreEqual(user.Description, expected.Description);
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace BLL.Test
             // Assert
             Assert.AreEqual(user.Id, expected.Id);
             Assert.AreEqual(user.Email, expected.Email);
-            Assert.AreEqual(user.PasswordHash, expected.PasswordHash);
+            Assert.AreEqual(user.Description, expected.Description);
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace BLL.Test
             // Assert
             Assert.AreEqual(user.Id, expected.Id);
             Assert.AreEqual(user.Email, expected.Email);
-            Assert.AreEqual(user.PasswordHash, expected.PasswordHash);
+            Assert.AreEqual(user.Description, expected.Description);
         }
 
         [Test]
@@ -89,10 +89,10 @@ namespace BLL.Test
         {
             // Arrange
             List<UserUpdateModel> goodUserUpdateModels = new List<UserUpdateModel>();
-            goodUserUpdateModels.Add(new UserUpdateModel{ Email="qweqwe@ya.ru", PasswordHash="123" });
-            goodUserUpdateModels.Add(new UserUpdateModel{ Email="123@yandex.com", PasswordHash="123" });
-            goodUserUpdateModels.Add(new UserUpdateModel{ Email="qwe@mail.ru", PasswordHash="123" });
-            goodUserUpdateModels.Add(new UserUpdateModel{ Email="alex@google.com", PasswordHash="123" });
+            goodUserUpdateModels.Add(new UserUpdateModel{ Email="qweqwe@ya.ru", Description="123" });
+            goodUserUpdateModels.Add(new UserUpdateModel{ Email="123@yandex.com", Description="123" });
+            goodUserUpdateModels.Add(new UserUpdateModel{ Email="qwe@mail.ru", Description="123" });
+            goodUserUpdateModels.Add(new UserUpdateModel{ Email="alex@google.com", Description="123" });
 
             // Action
             var userService = new UserService(fakeUserDataAccess.Object);
@@ -108,10 +108,10 @@ namespace BLL.Test
         {
             // Arrange
             List<UserUpdateModel> badUserUpdateModels = new List<UserUpdateModel>();
-            badUserUpdateModels.Add(new UserUpdateModel{ Email="qweqweya.ru", PasswordHash="123" });
-            badUserUpdateModels.Add(new UserUpdateModel{ Email="@ya.ru", PasswordHash="123" });
-            badUserUpdateModels.Add(new UserUpdateModel{ Email="qy@1.u", PasswordHash="123" });
-            badUserUpdateModels.Add(new UserUpdateModel{ Email="qy1.u", PasswordHash="123" });
+            badUserUpdateModels.Add(new UserUpdateModel{ Email="qweqweya.ru", Description="123" });
+            badUserUpdateModels.Add(new UserUpdateModel{ Email="@ya.ru", Description="123" });
+            badUserUpdateModels.Add(new UserUpdateModel{ Email="qy@1.u", Description="123" });
+            badUserUpdateModels.Add(new UserUpdateModel{ Email="qy1.u", Description="123" });
 
             // Action
             var userService = new UserService(fakeUserDataAccess.Object);

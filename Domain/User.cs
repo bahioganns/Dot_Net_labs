@@ -11,7 +11,7 @@ namespace Domain
 
         public int Id { get; set; }
         public string Email { get; set; }
-        public string PasswordHash { get; set; }
+        public string Description { get; set; }
 
         public List<Note> Notes { get; } = new List<Note>();
     }

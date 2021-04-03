@@ -27,7 +27,7 @@ namespace DataAccess
 
             UserDataAccess userDataAccess = new UserDataAccess(context, mapper);
 
-            Domain.User user = userDataAccess.Insert(new UserUpdateModel{ Email="123@456.ru", PasswordHash="qwe" });
+            Domain.User user = userDataAccess.Insert(new UserUpdateModel{ Email="123@456.ru", Description="qwe" });
 
             Console.WriteLine("Created User:");
             Console.WriteLine(user);
@@ -37,7 +37,7 @@ namespace DataAccess
 
             Domain.User updatedUser = userDataAccess.Update(
                 new UserIdentityModel(1),
-                new UserUpdateModel{ Email="111@789.ru", PasswordHash="rty" }
+                new UserUpdateModel{ Email="111@789.ru", Description="rty" }
             );
 
             Console.WriteLine("\nUpdated User:");

@@ -40,7 +40,7 @@ namespace DataAccess.Context
                 entity.Property(user => user.Email).IsRequired();
                 entity.HasIndex(user => user.Email).IsUnique();
 
-                entity.Property(user => user.PasswordHash).IsRequired();
+                entity.Property(user => user.Description).IsRequired();
             });
 
             this.OnModelCreatingPartial(modelBuilder);

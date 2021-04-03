@@ -14,7 +14,7 @@ namespace DataAccess.Entities
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Email { get; set; }
-        public string PasswordHash { get; set; }
+        public string Description { get; set; }
 
         public virtual ICollection<Note> Notes { get; set; }
     }
