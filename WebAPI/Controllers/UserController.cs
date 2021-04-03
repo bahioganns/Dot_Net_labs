@@ -75,9 +75,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("{id}/notes")]
-        public IEnumerable<int> GetUserNotes(int id)
+        public IEnumerable<NoteDTO> GetUserNotes(int id)
         {
-            return NoteGetService.GetUserNotes(new UserIdentityModel(id)).Select(x => x.Id).ToList();
+            return NoteGetService.GetUserNotes(new UserIdentityModel(id)).Select(x => Mapper.Map<NoteDTO>(x)).ToList();
         }
 
         [HttpPut("{id}")]
