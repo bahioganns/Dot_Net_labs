@@ -4,13 +4,28 @@
 
 Выбрана тема: Приложение для заметок
 
+---
+
+# TODO
+
+## Глобально
+
 - [X] Domain
 - [X] DataAccess
 - [X] BLL
 - [X] BLL.Test
-- [ ] DTO
-- [ ] WebAPI
+- [X] DTO
+- [X] WebAPI
+- [X] Curl API examples
 - [ ] Razor
+
+## Мелочи
+
+- [ ] Конфигурировать Context внутри WebAPI
+- [ ] Логгировать запросы в WebAPI
+- [ ] Обрабатывать ошибки в WebAPI, а не кидать Stacktrace
+
+---
 
 # Заметки по dotnet CLI
 
