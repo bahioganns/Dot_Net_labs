@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Заметки пользователя";
+}
+
+@{
+   var allNotes = (List<NoteDTO>)ViewData["AllNotes"];
+   var userId = (int)ViewData["UserId"];
+}
+
+<h2>Заметки пользователя #@userId</h2>
+
+<div>
+@foreach (var note in @allNotes)
+{
+    <div class="card m-2 p-3">
+        <h5 class="card-title">#@note.Id: @note.Title</h5>
+        <span><b>Описание:</b> @note.Content</span>
+        <span><b>Дата создания:</b> @note.Created</span>
+        <span class="p-1">
+            <a class="float-right btn btn-sm btn-danger m-1" href="/Note/Delete/@note.Id">Удалить заметку</a>
+            <a class="float-right btn btn-sm btn-primary m-1" href="/Note/Update/@note.Id">Изменить заметку</a>
+        </span>
+    </div>
+}
+    <div class="card m-2 p-2">
+        <a class="btn btn-sm btn-link" href="/Note/CreateFromUser/@userId">Создать заметку</a>
+    </div>
+</div>

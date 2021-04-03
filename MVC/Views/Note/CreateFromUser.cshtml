@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Создание новой заметки";
+}
+
+@{
+   var userId = (int)ViewData["UserId"];
+}
+
+<h2>Создание новой заметки</h2>
+
+<form class="w-50" action="/Note/CreateAPI" method="POST">
+  <input type="hidden" name="userId" value="@userId"></input>
+  <div class="form-group">
+    <label for="title">Название</label>
+    <input name="title" type="title" class="form-control" id="title" placeholder="Название">
+  </div>
+  <div class="form-group">
+    <label for="content">Описание</label>
+    <input name="content" type="text" class="form-control" id="content" placeholder="Описание">
+  </div>
+  <button type="submit" class="btn btn-primary">Создать</button>
+</form>

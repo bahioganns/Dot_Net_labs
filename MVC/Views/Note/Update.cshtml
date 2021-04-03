@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Изменение заметки";
+}
+
+@{
+   var note = (NoteDTO)ViewData["Note"];
+}
+
+<h2>Изменение заметки</h2>
+
+<form class="w-50" action="/Note/UpdateAPI/@note.Id" method="POST">
+  <input type="hidden" name="userId" value="@note.UserId"></input>
+  <div class="form-group">
+    <label for="title">Название</label>
+    <input name="title" type="title" class="form-control" id="title" placeholder="Название" value="@note.Title">
+  </div>
+  <div class="form-group">
+    <label for="content">Содержание</label>
+    <input name="content" type="text" class="form-control" id="content" placeholder="Содержание" value="@note.Content">
+  </div>
+  <button type="submit" class="btn btn-primary">Создать</button>
+</form>
