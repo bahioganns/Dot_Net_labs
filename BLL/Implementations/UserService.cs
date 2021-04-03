@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using DataAccess.Contracts;
 using Domain;
@@ -24,6 +25,11 @@ namespace BLL.Implementations
         public User GetUser(UserIdentityModel userId)
         {
             return this.UserDataAccess.Get(userId);
+        }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+            return this.UserDataAccess.GetAllUsers();
         }
 
         public User UpdateUser(UserIdentityModel userId, UserUpdateModel user)

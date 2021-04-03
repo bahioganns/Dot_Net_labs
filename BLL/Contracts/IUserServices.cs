@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using Domain;
 using Domain.Models;
 
@@ -12,6 +14,7 @@ namespace BLL.Contracts
     public interface IUserGetService
     {
         User GetUser(UserIdentityModel userId);
+        IEnumerable<User> GetAllUsers();
     }
 
     public interface IUserUpdateService
