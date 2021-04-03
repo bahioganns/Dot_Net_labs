@@ -1,3 +1,5 @@
+.PHONY: mvc
+
 SLN_NAME := labs.sln
 
 mvc:
