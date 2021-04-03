@@ -17,13 +17,15 @@
 - [X] DTO
 - [X] WebAPI
 - [X] Curl API examples
-- [ ] Razor
+- [ ] Razor MVC
 
 ## Мелочи
 
+- [ ] Валидация User в BLL.Update
 - [ ] Конфигурировать Context внутри WebAPI
 - [ ] Логгировать запросы в WebAPI
 - [ ] Обрабатывать ошибки в WebAPI, а не кидать Stacktrace
+- [ ] Показывать ошибки валидации в MVC
 
 ---
 
@@ -40,6 +42,7 @@ dotnet new console -o BLL
 dotnet new nunit -o BLL.Test
 dotnet new classlib -o DTO
 dotnet new webapi --no-https --auth None -o WebAPI
+dotnet new mvc -o MVC
 dotnet new # Список всех возможных типов проектов
 
 # Создание решения и добавление проектов
