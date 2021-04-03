@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 using DataAccess.Contracts;
 using Domain;
 using Domain.Models;
@@ -19,6 +20,11 @@ namespace BLL.Implementations
         public Note CreateNote(NoteUpdateModel note)
         {
             return this.NoteDataAccess.Insert(note);
+        }
+
+        public List<Note> GetUserNotes(UserIdentityModel userId)
+        {
+            return this.NoteDataAccess.GetUserNotes(userId);
         }
 
         public Note GetNote(NoteIdentityModel noteId)

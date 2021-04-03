@@ -11,6 +11,7 @@ namespace BLL.Contracts
 
     public interface INoteGetService
     {
+        List<Note> GetUserNotes(UserIdentityModel userId);
         Note GetNote(NoteIdentityModel noteId);
     }
 
