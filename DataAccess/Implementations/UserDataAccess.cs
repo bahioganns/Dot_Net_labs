@@ -43,6 +43,13 @@ namespace DataAccess.Implementations
             return this.Mapper.Map<Domain.User>(result);
         }
 
+        public IEnumerable<Domain.User> GetAllUsers()
+        {
+            var result = this.Context.User;
+
+            return result.Select(x => this.Mapper.Map<Domain.User>(x)).ToList();
+        }
+
         public Domain.User Update(UserIdentityModel id, UserUpdateModel user)
         {
             var existing = this.Context.User.Where(u => u.Id == id.Id).First();
