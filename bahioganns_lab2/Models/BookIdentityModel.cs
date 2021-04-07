@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Domain.Contracts;
 
-namespace bahioganns_lab2.Models
+namespace Domain.Models
 {
-    class BookIdentityModel
+    public class BookIdentityModel: IBookIdentity
     {
+        public int Id { get;  }
+
+        public BookIdentityModel(int id)
+        {
+            this.Id = id;
+        }
     }
 }

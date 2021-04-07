@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Domain.Contracts;
 
-namespace bahioganns_lab2.Models
+namespace Domain.Models
 {
-    class VisitorUpdateModel
+    public class VisitorUpdateModel
     {
+        public string Login { get; set; }
+
+        public string Faq { get; set; }
     }
 }

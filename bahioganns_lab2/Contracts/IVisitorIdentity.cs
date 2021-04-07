@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace bahioganns_lab2.Contracts
+namespace Domain.Contracts
 {
-    interface IVisitorIdentity
+    public interface IVisitorIdentity
     {
+        public int Id { get; }
     }
 }
